@@ -10,6 +10,7 @@
 @media(max-width:760px){.chart-wrap{overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-color:#a7bad8 #eef2f9;scrollbar-width:thin}.chart-wrap>svg{min-width:800px;max-width:none;width:100%;height:auto}.chart-wrap text{font-size:15px}.chart-wrap .chart-legend{min-width:350px}.chart-wrap>.chart-note{position:sticky;left:0;max-width:calc(100vw - 120px)}.metric-note{font-size:11px}}
 .chart-mobile-hint{display:none}@media(max-width:760px){.chart-mobile-hint{display:block;color:#c0cde5;font-size:12px;margin:12px 0 0}}
 @media(max-width:760px){.chart-legend .chart-unit{display:none}.chart-wrap .chart-legend{min-width:0;white-space:nowrap}}
+.product-nodes [hidden]{display:none}.existing-growth .product-nodes span:first-child{background:#163b77;border-color:#163b77;color:white}
 </style></head><body>
 <a class="skip" href="#analysis">Skip to the analysis</a>
 <header class="site-header"><div class="wrap header-inner"><a class="brand" href="#top" aria-label="The Revenue Truth, back to top"><span class="brand-mark" aria-hidden="true">↗</span><span>The Revenue Truth<span class="brand-sub">A FINANCE ANALYTICS CASE</span></span></a><button class="nav-toggle" aria-expanded="false" aria-controls="navigation" aria-label="Open navigation">Menu <span aria-hidden="true">＋</span></button><nav class="nav" id="navigation" aria-label="Main navigation"><a href="#analysis">The analysis</a><a href="#growth">Growth drivers</a><a href="#method">The method</a><a href="#about">About me</a></nav><a class="header-cta" href="https://github.com/felipervm/saas-revenue-integrity">View the project <span aria-hidden="true">↗</span></a></div></header>
@@ -76,7 +77,8 @@ function showGrowth(index){
  setText('growth-description',cross?'July’s expansion comes entirely from existing accounts adding a product. Calling those accounts “new customers” would misstate the growth story.':'August’s expansion comes entirely from higher recurring value on products the accounts already held. The model increases contractual MRR; it does not identify real-world willingness to pay.');
  setText('growth-question',cross?'Which existing customer segments are adopting an additional product?':'Which changes in seats, pricing or contract terms explain the increase? Validate the terms before assigning a cause.');
  const diagram=document.getElementById('growth-diagram');diagram.setAttribute('aria-label',cross?'Existing account adds a product':'Existing account has higher recurring value on an existing product');
- diagram.querySelector('.new-product').textContent=cross?'+ Product C':'Product A ↑ MRR';
+ diagram.querySelector('.product-nodes span:first-child').textContent=cross?'Product A':'Product A ↑ MRR';
+ diagram.querySelector('.new-product').hidden=!cross;
  diagram.classList.toggle('existing-growth',!cross);
 }
 growthButtons.forEach(button=>button.addEventListener('click',()=>showGrowth(Number(button.dataset.growth))));

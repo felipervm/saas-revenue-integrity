@@ -6,3 +6,4 @@
 @media(max-width:760px){.chart-wrap{overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-color:#a7bad8 #eef2f9;scrollbar-width:thin}.chart-wrap>svg{min-width:800px;max-width:none;width:100%;height:auto}.chart-wrap text{font-size:15px}.chart-wrap .chart-legend{min-width:350px}.chart-wrap>.chart-note{position:sticky;left:0;max-width:calc(100vw - 120px)}.metric-note{font-size:11px}}
 .chart-mobile-hint{display:none}@media(max-width:760px){.chart-mobile-hint{display:block;color:#c0cde5;font-size:12px;margin:12px 0 0}}
 @media(max-width:760px){.chart-legend .chart-unit{display:none}.chart-wrap .chart-legend{min-width:0;white-space:nowrap}}
+.product-nodes [hidden]{display:none}.existing-growth .product-nodes span:first-child{background:#163b77;border-color:#163b77;color:white}

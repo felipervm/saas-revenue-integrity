@@ -43,7 +43,8 @@ function showGrowth(index){
  setText('growth-description',cross?'July’s expansion comes entirely from existing accounts adding a product. Calling those accounts “new customers” would misstate the growth story.':'August’s expansion comes entirely from higher recurring value on products the accounts already held. The model increases contractual MRR; it does not identify real-world willingness to pay.');
  setText('growth-question',cross?'Which existing customer segments are adopting an additional product?':'Which changes in seats, pricing or contract terms explain the increase? Validate the terms before assigning a cause.');
  const diagram=document.getElementById('growth-diagram');diagram.setAttribute('aria-label',cross?'Existing account adds a product':'Existing account has higher recurring value on an existing product');
- diagram.querySelector('.new-product').textContent=cross?'+ Product C':'Product A ↑ MRR';
+ diagram.querySelector('.product-nodes span:first-child').textContent=cross?'Product A':'Product A ↑ MRR';
+ diagram.querySelector('.new-product').hidden=!cross;
  diagram.classList.toggle('existing-growth',!cross);
 }
 growthButtons.forEach(button=>button.addEventListener('click',()=>showGrowth(Number(button.dataset.growth))));
