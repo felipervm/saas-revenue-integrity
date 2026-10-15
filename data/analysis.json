@@ -1,0 +1,404 @@
+{
+  "metadata": {
+    "dataset": "Synthetic fictional SaaS accounts and products \u2014 NOT 1Password internal data",
+    "seed": 20261015,
+    "accounts": 120,
+    "period": "Jan\u2013Dec 2026",
+    "currency": "CAD",
+    "pricing": "illustrative only"
+  },
+  "results": {
+    "01_arr_bridge": [
+      {
+        "month": "2026-01",
+        "opening_arr": 0,
+        "new_arr": 8664,
+        "expansion_arr": 0,
+        "contraction_arr": 0,
+        "churn_arr": 0,
+        "closing_arr": 8664
+      },
+      {
+        "month": "2026-02",
+        "opening_arr": 8664,
+        "new_arr": 9240,
+        "expansion_arr": 0,
+        "contraction_arr": 0,
+        "churn_arr": 0,
+        "closing_arr": 17904
+      },
+      {
+        "month": "2026-03",
+        "opening_arr": 17904,
+        "new_arr": 9084,
+        "expansion_arr": 0,
+        "contraction_arr": 0,
+        "churn_arr": 0,
+        "closing_arr": 26988
+      },
+      {
+        "month": "2026-04",
+        "opening_arr": 26988,
+        "new_arr": 8772,
+        "expansion_arr": 0,
+        "contraction_arr": 0,
+        "churn_arr": 0,
+        "closing_arr": 35760
+      },
+      {
+        "month": "2026-05",
+        "opening_arr": 35760,
+        "new_arr": 9324,
+        "expansion_arr": 0,
+        "contraction_arr": 0,
+        "churn_arr": 0,
+        "closing_arr": 45084
+      },
+      {
+        "month": "2026-06",
+        "opening_arr": 45084,
+        "new_arr": 0,
+        "expansion_arr": 0,
+        "contraction_arr": 0,
+        "churn_arr": 0,
+        "closing_arr": 45084
+      },
+      {
+        "month": "2026-07",
+        "opening_arr": 45084,
+        "new_arr": 0,
+        "expansion_arr": 11748,
+        "contraction_arr": 0,
+        "churn_arr": 0,
+        "closing_arr": 56832
+      },
+      {
+        "month": "2026-08",
+        "opening_arr": 56832,
+        "new_arr": 0,
+        "expansion_arr": 2376,
+        "contraction_arr": 0,
+        "churn_arr": 0,
+        "closing_arr": 59208
+      },
+      {
+        "month": "2026-09",
+        "opening_arr": 59208,
+        "new_arr": 0,
+        "expansion_arr": 0,
+        "contraction_arr": 0,
+        "churn_arr": 0,
+        "closing_arr": 59208
+      },
+      {
+        "month": "2026-10",
+        "opening_arr": 59208,
+        "new_arr": 0,
+        "expansion_arr": 0,
+        "contraction_arr": 0,
+        "churn_arr": 4020,
+        "closing_arr": 55188
+      },
+      {
+        "month": "2026-11",
+        "opening_arr": 55188,
+        "new_arr": 0,
+        "expansion_arr": 0,
+        "contraction_arr": 0,
+        "churn_arr": 0,
+        "closing_arr": 55188
+      },
+      {
+        "month": "2026-12",
+        "opening_arr": 55188,
+        "new_arr": 0,
+        "expansion_arr": 0,
+        "contraction_arr": 0,
+        "churn_arr": 2880,
+        "closing_arr": 52308
+      }
+    ],
+    "02_billing_distortion": [
+      {
+        "month": "2026-01",
+        "contract_arr": 8664,
+        "invoices_cad": 8664,
+        "naive_annualized_invoices": 103968,
+        "invoice_vs_arr_delta": 95304
+      },
+      {
+        "month": "2026-02",
+        "contract_arr": 17904,
+        "invoices_cad": 770,
+        "naive_annualized_invoices": 9240,
+        "invoice_vs_arr_delta": -8664
+      },
+      {
+        "month": "2026-03",
+        "contract_arr": 26988,
+        "invoices_cad": 1527,
+        "naive_annualized_invoices": 18324,
+        "invoice_vs_arr_delta": -8664
+      },
+      {
+        "month": "2026-04",
+        "contract_arr": 35760,
+        "invoices_cad": 2258,
+        "naive_annualized_invoices": 27096,
+        "invoice_vs_arr_delta": -8664
+      },
+      {
+        "month": "2026-05",
+        "contract_arr": 45084,
+        "invoices_cad": 3035,
+        "naive_annualized_invoices": 36420,
+        "invoice_vs_arr_delta": -8664
+      },
+      {
+        "month": "2026-06",
+        "contract_arr": 45084,
+        "invoices_cad": 3035,
+        "naive_annualized_invoices": 36420,
+        "invoice_vs_arr_delta": -8664
+      },
+      {
+        "month": "2026-07",
+        "contract_arr": 56832,
+        "invoices_cad": 3849,
+        "naive_annualized_invoices": 46188,
+        "invoice_vs_arr_delta": -10644
+      },
+      {
+        "month": "2026-08",
+        "contract_arr": 59208,
+        "invoices_cad": 4007,
+        "naive_annualized_invoices": 48084,
+        "invoice_vs_arr_delta": -11124
+      },
+      {
+        "month": "2026-09",
+        "contract_arr": 59208,
+        "invoices_cad": 3827,
+        "naive_annualized_invoices": 45924,
+        "invoice_vs_arr_delta": -13284
+      },
+      {
+        "month": "2026-10",
+        "contract_arr": 55188,
+        "invoices_cad": 3692,
+        "naive_annualized_invoices": 44304,
+        "invoice_vs_arr_delta": -10884
+      },
+      {
+        "month": "2026-11",
+        "contract_arr": 55188,
+        "invoices_cad": 3692,
+        "naive_annualized_invoices": 44304,
+        "invoice_vs_arr_delta": -10884
+      },
+      {
+        "month": "2026-12",
+        "contract_arr": 52308,
+        "invoices_cad": 3472,
+        "naive_annualized_invoices": 41664,
+        "invoice_vs_arr_delta": -10644
+      }
+    ],
+    "03_quality_checks": [
+      {
+        "check_name": "duplicate_subscription_grain",
+        "failures": 0
+      },
+      {
+        "check_name": "negative_or_inactive_mrr",
+        "failures": 0
+      },
+      {
+        "check_name": "unknown_product",
+        "failures": 0
+      },
+      {
+        "check_name": "orphan_invoice",
+        "failures": 0
+      },
+      {
+        "check_name": "invalid_month",
+        "failures": 0
+      }
+    ],
+    "04_retention": [
+      {
+        "month": "2026-01",
+        "retained_cohort_opening_arr": 0,
+        "retained_cohort_closing_arr": 0,
+        "monthly_net_revenue_retention_pct": null
+      },
+      {
+        "month": "2026-02",
+        "retained_cohort_opening_arr": 8664,
+        "retained_cohort_closing_arr": 8664,
+        "monthly_net_revenue_retention_pct": 100.0
+      },
+      {
+        "month": "2026-03",
+        "retained_cohort_opening_arr": 17904,
+        "retained_cohort_closing_arr": 17904,
+        "monthly_net_revenue_retention_pct": 100.0
+      },
+      {
+        "month": "2026-04",
+        "retained_cohort_opening_arr": 26988,
+        "retained_cohort_closing_arr": 26988,
+        "monthly_net_revenue_retention_pct": 100.0
+      },
+      {
+        "month": "2026-05",
+        "retained_cohort_opening_arr": 35760,
+        "retained_cohort_closing_arr": 35760,
+        "monthly_net_revenue_retention_pct": 100.0
+      },
+      {
+        "month": "2026-06",
+        "retained_cohort_opening_arr": 45084,
+        "retained_cohort_closing_arr": 45084,
+        "monthly_net_revenue_retention_pct": 100.0
+      },
+      {
+        "month": "2026-07",
+        "retained_cohort_opening_arr": 45084,
+        "retained_cohort_closing_arr": 56832,
+        "monthly_net_revenue_retention_pct": 126.06
+      },
+      {
+        "month": "2026-08",
+        "retained_cohort_opening_arr": 56832,
+        "retained_cohort_closing_arr": 59208,
+        "monthly_net_revenue_retention_pct": 104.18
+      },
+      {
+        "month": "2026-09",
+        "retained_cohort_opening_arr": 59208,
+        "retained_cohort_closing_arr": 59208,
+        "monthly_net_revenue_retention_pct": 100.0
+      },
+      {
+        "month": "2026-10",
+        "retained_cohort_opening_arr": 59208,
+        "retained_cohort_closing_arr": 55188,
+        "monthly_net_revenue_retention_pct": 93.21
+      },
+      {
+        "month": "2026-11",
+        "retained_cohort_opening_arr": 55188,
+        "retained_cohort_closing_arr": 55188,
+        "monthly_net_revenue_retention_pct": 100.0
+      },
+      {
+        "month": "2026-12",
+        "retained_cohort_opening_arr": 55188,
+        "retained_cohort_closing_arr": 52308,
+        "monthly_net_revenue_retention_pct": 94.78
+      }
+    ],
+    "05_expansion_attribution": [
+      {
+        "month": "2026-01",
+        "cross_sell_arr": 0,
+        "existing_product_growth_arr": 0,
+        "identified_expansion_arr": 0
+      },
+      {
+        "month": "2026-02",
+        "cross_sell_arr": 0,
+        "existing_product_growth_arr": 0,
+        "identified_expansion_arr": 0
+      },
+      {
+        "month": "2026-03",
+        "cross_sell_arr": 0,
+        "existing_product_growth_arr": 0,
+        "identified_expansion_arr": 0
+      },
+      {
+        "month": "2026-04",
+        "cross_sell_arr": 0,
+        "existing_product_growth_arr": 0,
+        "identified_expansion_arr": 0
+      },
+      {
+        "month": "2026-05",
+        "cross_sell_arr": 0,
+        "existing_product_growth_arr": 0,
+        "identified_expansion_arr": 0
+      },
+      {
+        "month": "2026-06",
+        "cross_sell_arr": 0,
+        "existing_product_growth_arr": 0,
+        "identified_expansion_arr": 0
+      },
+      {
+        "month": "2026-07",
+        "cross_sell_arr": 11748,
+        "existing_product_growth_arr": 0,
+        "identified_expansion_arr": 11748
+      },
+      {
+        "month": "2026-08",
+        "cross_sell_arr": 0,
+        "existing_product_growth_arr": 2376,
+        "identified_expansion_arr": 2376
+      },
+      {
+        "month": "2026-09",
+        "cross_sell_arr": 0,
+        "existing_product_growth_arr": 0,
+        "identified_expansion_arr": 0
+      },
+      {
+        "month": "2026-10",
+        "cross_sell_arr": 0,
+        "existing_product_growth_arr": 0,
+        "identified_expansion_arr": 0
+      },
+      {
+        "month": "2026-11",
+        "cross_sell_arr": 0,
+        "existing_product_growth_arr": 0,
+        "identified_expansion_arr": 0
+      },
+      {
+        "month": "2026-12",
+        "cross_sell_arr": 0,
+        "existing_product_growth_arr": 0,
+        "identified_expansion_arr": 0
+      }
+    ],
+    "06_semantic_controls": [
+      {
+        "check_name": "active_with_zero_mrr",
+        "failures": 0
+      },
+      {
+        "check_name": "unknown_account",
+        "failures": 0
+      },
+      {
+        "check_name": "invalid_cadence",
+        "failures": 0
+      },
+      {
+        "check_name": "pre_cohort_recurring_value",
+        "failures": 0
+      },
+      {
+        "check_name": "incorrect_monthly_subscription_invoice",
+        "failures": 0
+      },
+      {
+        "check_name": "unexpected_invoice_type",
+        "failures": 0
+      }
+    ]
+  }
+}
