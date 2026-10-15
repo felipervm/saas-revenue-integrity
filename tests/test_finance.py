@@ -1,4 +1,4 @@
-import sys,unittest,tempfile
+import sys,unittest,tempfile,json,re
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
 from build import generate,analyses,validate
@@ -48,6 +48,20 @@ class FinanceTests(unittest.TestCase):
    self.assertEqual(checks['active_with_zero_mrr'],1)
   finally:
    self.conn.execute('ROLLBACK TO inject');self.conn.execute('RELEASE inject')
+ def test_published_page_matches_sql_results(self):
+  root=Path(__file__).resolve().parents[1]
+  expected=json.loads((root/'data/analysis.json').read_text())
+  for path in (root/'index.html',root/'site'/'index.html'):
+   html=path.read_text()
+   match=re.search(r'<script id="results" type="application/json">(.*?)</script>',html,re.S)
+   self.assertIsNotNone(match,str(path))
+   self.assertEqual(json.loads(match.group(1)),expected)
+ def test_pages_are_identical(self):
+  root=Path(__file__).resolve().parents[1]
+  self.assertEqual((root/'index.html').read_bytes(),(root/'site'/'index.html').read_bytes())
+ def test_cadences_and_month_end_are_valid(self):
+  self.assertEqual(self.conn.execute("SELECT COUNT(*) FROM fact_subscription_month WHERE billing_cadence NOT IN ('monthly','annual')").fetchone()[0],0)
+  self.assertEqual(self.out['01_arr_bridge'][-1]['closing_arr'],52308)
  def test_determinism(self):
   other=generate(Path(self.temp.name)/'second.sqlite')
   try:self.assertEqual(analyses(other)['01_arr_bridge'],self.out['01_arr_bridge'])
