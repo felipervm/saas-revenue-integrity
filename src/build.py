@@ -90,7 +90,7 @@ def main():
     payload={'metadata':{'dataset':'Synthetic fictional SaaS accounts and products — NOT 1Password internal data', 'seed':SEED,'accounts':120,'period':'Jan–Dec 2026','currency':'CAD','pricing':'illustrative only'},'results':results}
     (ROOT/'data'/'analysis.json').write_text(json.dumps(payload,indent=2)+'\n')
     # Keep both static pages in lockstep with the SQL results on every rebuild.
-    inline_json = json.dumps(payload, ensure_ascii=True, separators=(',', ':')).replace('<', '\u003c')
+    inline_json = json.dumps(payload, ensure_ascii=True, separators=(',', ':')).replace('<', '\\u003c')
     pattern = r'(<script id="results" type="application/json">).*?(</script>)'
     for page in (ROOT / 'index.html', ROOT / 'site' / 'index.html'):
         html = page.read_text(encoding='utf-8')
