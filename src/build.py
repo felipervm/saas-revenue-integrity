@@ -1,6 +1,6 @@
 """Deterministic, entirely synthetic SaaS finance analytics experiment (stdlib only)."""
 from __future__ import annotations
-import json, random, sqlite3, re
+import base64, json, random, sqlite3, re
 from pathlib import Path
 from collections import defaultdict
 
@@ -83,21 +83,29 @@ def validate(conn,results):
     assert all(r['identified_expansion_arr']==b['expansion_arr'] for r,b in zip(results['05_expansion_attribution'], bridge))
     assert any(r['invoice_vs_arr_delta']!=0 for r in results['02_billing_distortion'])
 
+def render_pages(payload):
+    """Embed local presentation assets so root and /site/ stay byte-identical."""
+    template = (ROOT/'site'/'template.html').read_text(encoding='utf-8')
+    replacements = {
+        '/* STYLES */': (ROOT/'site'/'styles.css').read_text(encoding='utf-8'),
+        '/* APP */': (ROOT/'site'/'app.js').read_text(encoding='utf-8'),
+        '/* RESULTS */': json.dumps(payload, ensure_ascii=True, separators=(',', ':')).replace('<', '\\u003c'),
+        '/* PORTRAIT */': 'data:image/jpeg;base64,' + base64.b64encode((ROOT/'site'/'assets'/'felipe-mattos.jpg').read_bytes()).decode('ascii'),
+    }
+    for token, value in replacements.items():
+        if template.count(token) != 1:
+            raise RuntimeError(f'Missing or duplicate presentation token: {token}')
+        template = template.replace(token, value)
+    for page in (ROOT/'index.html', ROOT/'site'/'index.html'):
+        page.write_bytes(template.encode('utf-8'))
+
 def main():
     conn=generate()
     results=analyses(conn)
     validate(conn,results)
     payload={'metadata':{'dataset':'Synthetic fictional SaaS accounts and products — NOT 1Password internal data', 'seed':SEED,'accounts':120,'period':'Jan–Dec 2026','currency':'CAD','pricing':'illustrative only'},'results':results}
-    (ROOT/'data'/'analysis.json').write_text(json.dumps(payload,indent=2)+'\n')
-    # Keep both static pages in lockstep with the SQL results on every rebuild.
-    inline_json = json.dumps(payload, ensure_ascii=True, separators=(',', ':')).replace('<', '\\u003c')
-    pattern = r'(<script id="results" type="application/json">).*?(</script>)'
-    for page in (ROOT / 'index.html', ROOT / 'site' / 'index.html'):
-        html = page.read_text(encoding='utf-8')
-        updated, count = re.subn(pattern, lambda match: match.group(1) + inline_json + match.group(2), html, count=1, flags=re.S)
-        if count != 1:
-            raise RuntimeError(f'Missing unique results script in {page}')
-        page.write_text(updated, encoding='utf-8')
+    (ROOT/'data'/'analysis.json').write_bytes((json.dumps(payload,indent=2)+'\n').encode('utf-8'))
+    render_pages(payload)
     conn.close()
     print('Wrote',DB,'and data/analysis.json; all reconciliation checks passed')
     print('December',results['01_arr_bridge'][-1])

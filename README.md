@@ -52,7 +52,10 @@ These observations support a workflow recommendation: build ARR on consistent ac
 - `data/analysis.json`: published computed results.
 - `data/revenue_truth.sqlite`: local analytical database.
 - `docs/decision_brief.md`: executive interpretation.
-- `site/index.html`: small visual report to accompany the reproducible analysis.
+- `site/template.html`, `site/styles.css`, `site/app.js`: source for the interactive case study.
+- `site/assets/felipe-mattos.jpg`: supplied author portrait.
+- `index.html`, `site/index.html`: identical, generated standalone pages; do not edit these directly.
+- `docs/application_notes.md`: evidence mapping and discussion prompts for the Finance Analytics role.
 
 ## Business interpretation
 
@@ -67,3 +70,11 @@ Six semantic control definitions additionally check active-but-zero recurring va
 **Note on recognition:** this project analyzes *contract ARR*, not cash flow or GAAP/IFRS recognized revenue. Invoices are a separate ledger; annualization of one month's invoices is deliberately shown only as an invalid shortcut.
 
 Website: [The Revenue Truth](https://felipervm.github.io/saas-revenue-integrity/). GitHub Pages should publish from `main` / repository root.
+
+## Interactive presentation
+
+The landing page moves from the business question to a twelve-month explorer, growth-driver comparison, model evidence, operational decision and author introduction. It includes month navigation, a data-driven comparison chart, a reconciling ARR bridge, monthly cohort NRR, July/August attribution and expandable control results. All calculations shown come from the deterministic SQL output; the chart does not infer revenue leakage.
+
+The visual direction takes inspiration from [1Password](https://1password.com/), with original presentation graphics and an explicit independent-work label. No company product screenshots or logos are used. This is a browser JavaScript prototype, not a Hex deployment. The suggested AI reporting workflow is documented as proposed; no AI API or confidential data is involved.
+
+After changing the template, CSS, JavaScript or portrait, run `python src/build.py`. It embeds the local assets and computed JSON in both published pages, preserving identical content and avoiding relative-path or stale external-asset issues. The page has no runtime dependencies, analytics or third-party font requests. Additional presentation tests verify deterministic publishing, the embedded portrait and research-link targets.

@@ -50,9 +50,9 @@ class FinanceTests(unittest.TestCase):
    self.conn.execute('ROLLBACK TO inject');self.conn.execute('RELEASE inject')
  def test_published_page_matches_sql_results(self):
   root=Path(__file__).resolve().parents[1]
-  expected=json.loads((root/'data/analysis.json').read_text())
+  expected=json.loads((root/'data/analysis.json').read_text(encoding='utf-8'))
   for path in (root/'index.html',root/'site'/'index.html'):
-   html=path.read_text()
+   html=path.read_text(encoding='utf-8')
    match=re.search(r'<script id="results" type="application/json">(.*?)</script>',html,re.S)
    self.assertIsNotNone(match,str(path))
    self.assertEqual(json.loads(match.group(1)),expected)
