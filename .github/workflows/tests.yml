@@ -1,0 +1,18 @@
+name: Finance model checks
+on:
+  push:
+  pull_request:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Rebuild reproducible results
+        run: python src/build.py
+      - name: Confirm generated results are committed
+        run: git diff --exit-code -- data/analysis.json index.html site/index.html
+      - name: Run finance and page tests
+        run: python -m unittest discover -s tests -v
